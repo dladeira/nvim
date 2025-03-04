@@ -1,50 +1,25 @@
 local vim = vim
-local Plug = vim.fn['plug#']
 
-vim.call('plug#begin')
+require('user/plugins')
+require('user/keymaps')
+require("user/options")
 
-Plug('nvim-treesitter/nvim-treesitter', { ['do'] = ':TSUpdate' })
-Plug('catppuccin/nvim', { ['as'] = 'catppuccin' })
-Plug('nvim-lua/plenary.nvim')
-Plug('nvim-lua/telescope.nvim', { ['tag'] = '0.1.8' })
-Plug('nvim-tree/nvim-web-devicons')
-Plug('MunifTanjim/nui.nvim')
-Plug('nvim-neo-tree/neo-tree.nvim', { ['branch'] = 'v3.x' })
-Plug('neovim/nvim-lspconfig')
-Plug('jose-elias-alvarez/null-ls.nvim')
-Plug('MunifTanjim/prettier.nvim')
-
-vim.call('plug#end')
+require('Comment').setup()
 
 vim.cmd.colorscheme('catppuccin')
 
-local builtin = require('telescope.builtin')
-
-vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-
-vim.keymap.set('n', '<S-b>', '<Cmd>Neotree focus right<CR>')
-
 vim.api.nvim_create_autocmd("VimEnter", {
     callback = function()
-        vim.cmd("Neotree show right")
+        vim.cmd("Neotree show left")
     end,
 })
-
-require("user.options")
 
 -- prettier
 
 local prettier = require("prettier")
-
 prettier.setup({
 	bin = 'prettierd'
 })
-
-vim.keymap.set('n', '<C-s>', '<Cmd>Prettier<CR>')
-vim.keymap.set('n', '<S-f>', '<Cmd>w<CR><BAR><Cmd>Prettier<CR>')
 
 -- null-ls
 

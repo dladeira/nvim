@@ -1,5 +1,5 @@
 local set = vim.opt
---- vim options ---
+
 set.number = true
 set.tabstop = 4
 set.shiftwidth = 4
@@ -9,3 +9,7 @@ set.signcolumn = 'yes'
 
 set.number = true
 set.relativenumber = true
+
+set.scrolloff = 15
+
+set.cursorline = true
