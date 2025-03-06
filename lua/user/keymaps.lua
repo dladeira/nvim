@@ -7,5 +7,18 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 vim.keymap.set('n', '<S-b>', '<Cmd>Neotree focus left<CR>')
 
-vim.keymap.set('n', '<C-s>', '<Cmd>Prettier<CR>')
-vim.keymap.set('n', '<S-f>', '<Cmd>w<CR><BAR><Cmd>Prettier<CR>')
+vim.keymap.set('n', '<S-f>', '<Cmd>w<CR><BAR>')
+
+-- Terminal
+vim.keymap.set('n', '<C-t>', '<Cmd>exe v:count1 .. "ToggleTerm"<CR>', { noremap = true, silent = true })
+vim.keymap.set('i', '<C-t>', '<Esc><Cmd>exe v:count1 .. "ToggleTerm"<CR>', { noremap = true, silent = true })
+
+vim.api.nvim_create_autocmd("TermEnter", {
+    pattern = "term://*toggleterm#*",
+    callback = function()
+        vim.keymap.set('t', '<C-t>', '<Cmd>exe v:count1 .. "ToggleTerm"<CR>', { noremap = true, silent = true, buffer = true })
+    end
+})
+
+-- ALE accept first suggestion
+vim.keymap.set('i', '<C-CR>', 'pumvisible() ? "<C-n><C-y>" : "<C-CR>"', { expr = true, noremap = true, silent = true })

@@ -10,6 +10,6 @@ set.signcolumn = 'yes'
 set.number = true
 set.relativenumber = true
 
-set.scrolloff = 15
+set.scrolloff = 10
 
 set.cursorline = true
