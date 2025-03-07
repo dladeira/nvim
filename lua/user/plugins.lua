@@ -22,4 +22,7 @@ Plug('MunifTanjim/nui.nvim') -- Dependency for neo-tree
 
 Plug('m4xshen/hardtime.nvim')
 
+Plug('williamboman/mason.nvim')
+Plug('mhartington/formatter.nvim')
+
 vim.call('plug#end')

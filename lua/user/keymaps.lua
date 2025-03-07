@@ -5,7 +5,7 @@ vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live gr
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
-vim.keymap.set('n', '<S-b>', '<Cmd>Neotree focus left<CR>')
+vim.keymap.set('n', '<S-b>', '<Cmd>Neotree toggle left<CR>')
 
 vim.keymap.set('n', '<S-f>', '<Cmd>w<CR><BAR>')
 
